@@ -19,4 +19,11 @@
         android:onClick="startClientActivity"
         android:text="@string/client" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="downloadFull"
+        android:text="@string/download_full" />
+
 </LinearLayout>

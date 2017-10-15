@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -126,9 +127,19 @@ public abstract class ChatActivity extends Activity {
 
             @Override
             protected void onPostExecute(Void aVoid) {
+                showToastOnUI("Disconnected.");
                 reset();
             }
         }.execute();
+    }
+
+    void showToastOnUI(final String message) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(ChatActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.nabinbhandari.android.socketmessaging;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -22,6 +23,10 @@ public class ServerActivity extends ChatActivity {
     public void setLayout() {
         setContentView(R.layout.activity_server);
         startButton = (Button) findViewById(R.id.startButton);
+
+        TextView ipTextView = (TextView) findViewById(R.id.ipTextView);
+        ipTextView.setText(String.format("IP Address: %s", Utils.getIPAddress()));
+        startServer(startButton);
     }
 
     @Override
@@ -42,7 +47,7 @@ public class ServerActivity extends ChatActivity {
             reset();
             return;
         }
-        startButton.setText(R.string.disconnect);
+        startButton.setText(R.string.stop_server);
         new Thread(new Runnable() {
             @Override
             public void run() {

@@ -28,6 +28,7 @@ public class ClientActivity extends ChatActivity {
     @Override
     void resetUI() {
         super.resetUI();
+        connectButton.setEnabled(true);
         connectButton.setText(R.string.connect);
     }
 
@@ -36,7 +37,8 @@ public class ClientActivity extends ChatActivity {
             reset();
             return;
         }
-        connectButton.setText(R.string.disconnect);
+        connectButton.setText(R.string.connecting);
+        connectButton.setEnabled(false);
         final String ip = ipEditText.getText().toString().trim();
         if (!ip.equals("")) {
             new Thread(new Runnable() {
@@ -44,14 +46,26 @@ public class ClientActivity extends ChatActivity {
                 public void run() {
                     try {
                         Socket socket = new Socket(ip, Utils.PORT);
+                        updateButton();
                         onConnected(socket);
                     } catch (IOException e) {
                         e.printStackTrace();
+                        showToastOnUI("Failed to connect: " + e.getMessage());
                         reset();
                     }
                 }
             }).start();
         }
+    }
+
+    private void updateButton() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                connectButton.setEnabled(true);
+                connectButton.setText(R.string.disconnect);
+            }
+        });
     }
 
 }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Socket Messaging Example</string>
+    <string name="client">Client</string>
+    <string name="server">Server</string>
+    <string name="ip_address_localhost">IP Address: localhost</string>
+    <string name="write_a_message">Write a message…</string>
+    <string name="send">Send</string>
+    <string name="start_server">Start Server</string>
+    <string name="messages_will_be_displayed_here">Messages will be displayed here…</string>
+    <string name="one92_dot168">192.168.</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
 </resources>

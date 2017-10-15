@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/messagesView"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:editable="false"
+        android:gravity="top"
+        android:hint="@string/messages_will_be_displayed_here"
+        android:inputType="none" />
+
+    <EditText
+        android:id="@+id/inputView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sendButton"
+        android:layout_alignTop="@+id/sendButton"
+        android:layout_toLeftOf="@+id/sendButton"
+        android:layout_toStartOf="@+id/sendButton"
+        android:hint="@string/write_a_message"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/messagesView"
+        android:onClick="sendMessage"
+        android:text="@string/send" />
+
+</RelativeLayout>
